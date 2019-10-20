@@ -4,16 +4,21 @@ spring:
       host: localhost
       port: 8500
     config:
-      enabled: false
       allow-override: true
+      name: ${spring.application.name}
+      label: master
+      # default application后面的后缀没有
+      profile: default
+      # 使用配置中心以及配置中心id
+      discovery:
+        enabled: true
+        service-id: mic-config-service
   application:
     name: mic-service-a
 
 
-
 server:
-  port: 9001
-
+  port: 9401
 
 management:
   endpoints:

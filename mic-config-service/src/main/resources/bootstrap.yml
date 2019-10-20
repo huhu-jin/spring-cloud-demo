@@ -1,0 +1,25 @@
+spring:
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      config:
+        data-key: data
+        format: yaml
+    config:
+      server:
+        git:
+          uri: https://gitee.com/zhangjin1990/spring-cloud-configure
+          username: jinzhang_hotline@163.com
+          password: JUSTDOIT
+  application:
+    name: mic-config-service
+
+server:
+  port: 9100
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

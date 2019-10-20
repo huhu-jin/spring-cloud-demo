@@ -7,26 +7,30 @@
         <groupId>com.jin.learn</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
+
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>mic-service-a</artifactId>
-
+    <artifactId>mic-config-service</artifactId>
 
     <dependencies>
         <!-- consul 注册发现 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-consul-discovery</artifactId>
-            <version>2.0.3.RELEASE</version>
+            <version>${consul.version}</version>
         </dependency>
 
-        <!--配置 远程获取-->
+        <!--配置中心-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-config</artifactId>
+            <artifactId>spring-cloud-starter-consul-config</artifactId>
+            <version>${consul.version}</version>
         </dependency>
 
-        <!--web服务器-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-config-server</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -36,8 +40,9 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
-
     </dependencies>
+
+
 
     <build>
         <plugins>
@@ -47,4 +52,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>

@@ -6,16 +6,26 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RefreshScope
-@ConfigurationProperties(prefix="jin")
+@ConfigurationProperties(prefix="jin.learn")
 public class Config {
 
-    private String learn;
-
-    public String getLearn() {
-        return learn;
+    public String getName() {
+        return name;
     }
 
-    public void setLearn(String learn) {
-        this.learn = learn;
+    public void setName(String name) {
+        this.name = name;
     }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    private String name;
+
+    private Integer age;
 }
