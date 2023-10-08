@@ -1,0 +1,21 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: config-account-service
+  cloud:
+    nacos:
+      serverAddr: 192.168.1.2:8848
+  config:
+    import:
+      - nacos:test.yaml?refresh=true
+
+dubbo:
+  protocol:
+    name: dubbo
+    port: -1
+  application:
+    name: dubbo-account-service
+  registry:
+    address: nacos://192.168.1.2:8848
