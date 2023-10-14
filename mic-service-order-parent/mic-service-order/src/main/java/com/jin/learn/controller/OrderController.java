@@ -20,7 +20,7 @@ public class OrderController {
     @Autowired
     private OrderFacade orderFacade;
 
-    @DubboReference
+    @DubboReference(timeout = 10000,check = false)
     private AccountFacade accountFacade;
 
 
@@ -30,8 +30,7 @@ public class OrderController {
         request.setUserId(id);
         request.setValue(Integer.valueOf(id));
         AccountInfoResponse accountInfoResponse = accountFacade.changeUserWallet(request);
-        System.out.println(accountInfoResponse);
-        return "hello world";
+        return accountInfoResponse;
     }
 
 }
